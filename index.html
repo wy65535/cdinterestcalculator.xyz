@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free CD Interest Calculator - Calculate your Certificate of Deposit returns with compound interest, compare CD rates, and plan your savings strategy. Support for multiple terms, APY calculations, and CD laddering.">
+    <meta name="keywords" content="cd calculator, cd interest calculator, certificate of deposit calculator, cd rate calculator, cd maturity calculator, cd earnings calculator, apy calculator, compound interest calculator, cd ladder calculator, high yield cd calculator, savings calculator">
+    <meta name="author" content="CD Interest Calculator">
+    <meta property="og:title" content="CD Interest Calculator - Calculate Certificate of Deposit Returns">
+    <meta property="og:description" content="Calculate your CD earnings with our free, comprehensive calculator. Compare rates, plan CD ladders, and maximize your savings returns.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cdinterestcalculator.xyz/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CD Interest Calculator - Calculate Your Returns">
+    <meta name="twitter:description" content="Free CD calculator with compound interest, APY calculations, and CD laddering strategies.">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://cdinterestcalculator.xyz/">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+    <title>CD Interest Calculator - Free Certificate of Deposit Calculator with APY & Compound Interest</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CD Interest Calculator",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Calculate Certificate of Deposit returns with compound interest and APY calculations",
+        "operatingSystem": "Any",
+        "url": "https://cdinterestcalculator.xyz/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a CD (Certificate of Deposit)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Certificate of Deposit (CD) is a savings product offered by banks and credit unions that pays a fixed interest rate for a specific term. In exchange for leaving your money untouched for the agreed period, you receive higher interest rates than regular savings accounts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is CD interest calculated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "CD interest is typically calculated using compound interest formulas. The interest is added to your principal at regular intervals (daily, monthly, quarterly, or annually), and subsequent interest calculations include previously earned interest. The Annual Percentage Yield (APY) reflects the total amount earned in one year with compounding."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between APR and APY for CDs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "APR (Annual Percentage Rate) is the simple interest rate without compounding, while APY (Annual Percentage Yield) includes the effects of compound interest. APY is always equal to or higher than APR and gives you a more accurate picture of your actual earnings on a CD."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens if I withdraw from a CD early?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Early withdrawal from a CD typically results in penalties, which vary by institution. Common penalties include forfeiting 3-12 months of interest. Some banks may also charge a percentage of the principal if withdrawn very early. It's important to check your CD's early withdrawal penalty terms before opening the account."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a CD ladder strategy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A CD ladder is an investment strategy where you divide your money across multiple CDs with different maturity dates. This provides regular access to portions of your money while maintaining higher interest rates. For example, you might invest in 1-year, 2-year, 3-year, 4-year, and 5-year CDs, creating annual maturity dates."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>💰 CD Interest Calculator</h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="#calculator">Calculator</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#comparison">Compare CDs</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Free CD Interest Calculator - Maximize Your Certificate of Deposit Returns</h2>
+                <p class="hero-subtitle">Calculate your CD earnings with precision. Compare rates, plan CD ladders, and make informed investment decisions. Our comprehensive calculator supports compound interest, multiple compounding periods, and early withdrawal scenarios.</p>
+            </div>
+        </section>
+
+        <section id="calculator" class="calculator-section">
+            <div class="container">
+                <div class="calculator-grid">
+                    <div class="calculator-inputs">
+                        <h3>CD Calculator Settings</h3>
+                        
+                        <div class="input-group">
+                            <label for="principal">Initial Deposit Amount ($)</label>
+                            <input type="number" id="principal" value="10000" min="0" step="100">
+                            <small>The amount you're depositing into the CD</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="interestRate">Annual Interest Rate (APR %)</label>
+                            <input type="number" id="interestRate" value="4.5" min="0" max="20" step="0.01">
+                            <small>The stated annual percentage rate</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="term">CD Term (Months)</label>
+                            <input type="number" id="term" value="12" min="1" max="120" step="1">
+                            <div class="quick-terms">
+                                <button class="term-btn" data-term="3">3 Mo</button>
+                                <button class="term-btn" data-term="6">6 Mo</button>
+                                <button class="term-btn" data-term="12">1 Yr</button>
+                                <button class="term-btn" data-term="24">2 Yr</button>
+                                <button class="term-btn" data-term="36">3 Yr</button>
+                                <button class="term-btn" data-term="60">5 Yr</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="compounding">Compounding Frequency</label>
+                            <select id="compounding">
+                                <option value="365">Daily (365)</option>
+                                <option value="12" selected>Monthly (12)</option>
+                                <option value="4">Quarterly (4)</option>
+                                <option value="2">Semi-Annually (2)</option>
+                                <option value="1">Annually (1)</option>
+                            </select>
+                            <small>How often interest is calculated and added to your principal</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="additionalDeposit">Additional Monthly Deposit ($)</label>
+                            <input type="number" id="additionalDeposit" value="0" min="0" step="50">
+                            <small>Optional: Monthly contributions (if allowed by your CD)</small>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="earlyWithdrawal">
+                            <label for="earlyWithdrawal">Calculate Early Withdrawal Penalty</label>
+                        </div>
+
+                        <div class="input-group penalty-group" style="display:none;">
+                            <label for="penaltyMonths">Penalty (Months of Interest)</label>
+                            <input type="number" id="penaltyMonths" value="3" min="0" max="24" step="1">
+                            <small>Typical penalties range from 3-12 months of interest</small>
+                        </div>
+
+                        <button id="calculateBtn" class="btn-primary">Calculate CD Returns</button>
+                        <button id="compareBtn" class="btn-secondary">Compare Multiple CDs</button>
+                    </div>
+
+                    <div class="calculator-results">
+                        <h3>Your CD Calculation Results</h3>
+                        <div id="results" class="results-display">
+                            <div class="result-card">
+                                <div class="result-label">Total Interest Earned</div>
+                                <div class="result-value" id="totalInterest">$450.00</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Final Balance</div>
+                                <div class="result-value" id="finalBalance">$10,450.00</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Annual Percentage Yield (APY)</div>
+                                <div class="result-value" id="apy">4.59%</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Effective Rate</div>
+                                <div class="result-value" id="effectiveRate">4.59%</div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <h4>Growth Visualization</h4>
+                            <canvas id="growthChart"></canvas>
+                        </div>
+
+                        <div class="breakdown-table">
+                            <h4>Interest Breakdown by Year</h4>
+                            <div id="breakdownTable"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="comparison-section">
+            <div class="container">
+                <h3>Compare Multiple CD Options</h3>
+                <p>Compare different CD offerings to find the best rate for your investment timeline</p>
+                
+                <div class="comparison-grid" id="comparisonGrid">
+                    <!-- Comparison cards will be added dynamically -->
+                </div>
+                
+                <button id="addComparisonBtn" class="btn-secondary">+ Add CD to Compare</button>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="info-section">
+            <div class="container">
+                <h2>How CD Interest Calculation Works</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📊 Understanding CD Interest</h3>
+                        <p>Certificate of Deposit (CD) interest is calculated using compound interest formulas. Unlike simple interest, compound interest allows you to earn interest on your interest, leading to exponential growth over time.</p>
+                        <p><strong>Formula:</strong> A = P(1 + r/n)^(nt)</p>
+                        <ul>
+                            <li><strong>A</strong> = Final amount</li>
+                            <li><strong>P</strong> = Principal (initial deposit)</li>
+                            <li><strong>r</strong> = Annual interest rate (decimal)</li>
+                            <li><strong>n</strong> = Compounding frequency per year</li>
+                            <li><strong>t</strong> = Time in years</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>💡 APY vs APR</h3>
+                        <p><strong>APR (Annual Percentage Rate)</strong> is the stated interest rate without considering compounding effects.</p>
+                        <p><strong>APY (Annual Percentage Yield)</strong> includes the effect of compounding and represents your actual annual return.</p>
+                        <p>The more frequently interest compounds, the higher your APY will be compared to APR. Daily compounding yields the best returns.</p>
+                        <p><strong>APY Formula:</strong> APY = (1 + r/n)^n - 1</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🏦 CD Terms and Rates</h3>
+                        <p>CD terms typically range from 3 months to 5 years or more. Generally, longer terms offer higher interest rates as a reward for locking up your money longer.</p>
+                        <ul>
+                            <li><strong>Short-term CDs (3-12 months):</strong> Lower rates but more flexibility</li>
+                            <li><strong>Mid-term CDs (1-3 years):</strong> Balanced rates and timeframe</li>
+                            <li><strong>Long-term CDs (3-5+ years):</strong> Highest rates but least flexibility</li>
+                        </ul>
+                        <p>Current top CD rates range from 4.0% to 5.5% depending on term and institution.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>⚠️ Early Withdrawal Penalties</h3>
+                        <p>Withdrawing funds before maturity typically incurs penalties:</p>
+                        <ul>
+                            <li><strong>3-6 months interest:</strong> Common for CDs under 2 years</li>
+                            <li><strong>6-12 months interest:</strong> Typical for 2-5 year CDs</li>
+                            <li><strong>Percentage of principal:</strong> Some banks charge 1-2%</li>
+                        </ul>
+                        <p>Always check your specific CD's early withdrawal terms before opening an account.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📈 CD Ladder Strategy</h3>
+                        <p>A CD ladder spreads your investment across multiple CDs with staggered maturity dates, providing:</p>
+                        <ul>
+                            <li>Regular access to portions of your money</li>
+                            <li>Higher average interest rates than keeping all funds liquid</li>
+                            <li>Flexibility to reinvest at current rates</li>
+                            <li>Reduced interest rate risk</li>
+                        </ul>
+                        <p><strong>Example:</strong> Invest $25,000 across five $5,000 CDs maturing in 1, 2, 3, 4, and 5 years.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🎯 Maximizing CD Returns</h3>
+                        <p><strong>Tips for getting the best CD rates:</strong></p>
+                        <ul>
+                            <li>Shop around - online banks often offer higher rates</li>
+                            <li>Consider credit unions - often competitive rates</li>
+                            <li>Look for promotional rates on new accounts</li>
+                            <li>Choose daily compounding when possible</li>
+                            <li>Match CD terms to your financial goals</li>
+                            <li>Stay under FDIC/NCUA insurance limits ($250,000)</li>
+                            <li>Consider no-penalty CDs for flexibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cd-types-section">
+            <div class="container">
+                <h2>Types of CDs Explained</h2>
+                
+                <div class="cd-types-grid">
+                    <div class="cd-type-card">
+                        <h3>Traditional CDs</h3>
+                        <p>Standard fixed-rate CDs with penalties for early withdrawal. Best for investors who won't need the funds before maturity.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>Pros:</strong>
+                                <ul>
+                                    <li>Highest rates</li>
+                                    <li>Predictable returns</li>
+                                    <li>FDIC insured</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>Cons:</strong>
+                                <ul>
+                                    <li>Early withdrawal penalties</li>
+                                    <li>Funds locked up</li>
+                                    <li>Rate lock risk</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cd-type-card">
+                        <h3>No-Penalty CDs</h3>
+                        <p>Allows withdrawal without penalties, typically after 6-7 days. Rates are usually lower than traditional CDs.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>Pros:</strong>
+                                <ul>
+                                    <li>Full liquidity</li>
+                                    <li>No penalties</li>
+                                    <li>Higher than savings</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>Cons:</strong>
+                                <ul>
+                                    <li>Lower rates</li>
+                                    <li>Limited terms</li>
+                                    <li>May require higher minimums</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cd-type-card">
+                        <h3>Bump-Up CDs</h3>
+                        <p>Allows you to request a rate increase if rates rise during your term. Usually one increase allowed.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>Pros:</strong>
+                                <ul>
+                                    <li>Rate increase option</li>
+                                    <li>Protection from rising rates</li>
+                                    <li>Predictable base rate</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>Cons:</strong>
+                                <ul>
+                                    <li>Lower initial rates</li>
+                                    <li>Limited bumps</li>
+                                    <li>Must request increase</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cd-type-card">
+                        <h3>Jumbo CDs</h3>
+                        <p>Requires large minimum deposits (usually $100,000+) in exchange for higher rates.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>Pros:</strong>
+                                <ul>
+                                    <li>Higher rates</li>
+                                    <li>Competitive returns</li>
+                                    <li>FDIC insured (up to limit)</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>Cons:</strong>
+                                <ul>
+                                    <li>High minimums</li>
+                                    <li>FDIC limit concerns</li>
+                                    <li>Less flexibility</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cd-type-card">
+                        <h3>IRA CDs</h3>
+                        <p>CDs held within Individual Retirement Accounts, offering tax advantages for retirement savings.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>Pros:</strong>
+                                <ul>
+                                    <li>Tax advantages</li>
+                                    <li>Retirement focused</li>
+                                    <li>Safe growth</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>Cons:</strong>
+                                <ul>
+                                    <li>Contribution limits</li>
+                                    <li>Age restrictions</li>
+                                    <li>Lower liquidity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cd-type-card">
+                        <h3>Add-On CDs</h3>
+                        <p>Allows additional deposits during the CD term, letting you add funds at the same rate.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>Pros:</strong>
+                                <ul>
+                                    <li>Flexible deposits</li>
+                                    <li>Dollar-cost averaging</li>
+                                    <li>Compound growth</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>Cons:</strong>
+                                <ul>
+                                    <li>Lower rates</li>
+                                    <li>Deposit limits</li>
+                                    <li>Less common</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions About CD Interest Calculators</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>What is a CD (Certificate of Deposit)?</h3>
+                        <p>A Certificate of Deposit (CD) is a savings product offered by banks and credit unions that pays a fixed interest rate for a specific term. In exchange for leaving your money untouched for the agreed period, you receive higher interest rates than regular savings accounts. CDs are FDIC-insured up to $250,000 per depositor, making them a safe investment option.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How is CD interest calculated?</h3>
+                        <p>CD interest is typically calculated using compound interest formulas. The interest is added to your principal at regular intervals (daily, monthly, quarterly, or annually), and subsequent interest calculations include previously earned interest. The formula is: A = P(1 + r/n)^(nt), where A is the final amount, P is principal, r is the annual rate, n is compounding frequency, and t is time in years.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What is the difference between APR and APY for CDs?</h3>
+                        <p>APR (Annual Percentage Rate) is the simple interest rate without compounding, while APY (Annual Percentage Yield) includes the effects of compound interest. APY is always equal to or higher than APR and gives you a more accurate picture of your actual earnings on a CD. For example, a CD with 4.5% APR compounded monthly has an APY of approximately 4.59%.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What happens if I withdraw from a CD early?</h3>
+                        <p>Early withdrawal from a CD typically results in penalties, which vary by institution. Common penalties include forfeiting 3-12 months of interest depending on the CD term. Some banks may also charge a percentage of the principal if withdrawn very early. No-penalty CDs are an alternative that allows early withdrawal without fees, though they usually offer lower rates.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What is a CD ladder strategy?</h3>
+                        <p>A CD ladder is an investment strategy where you divide your money across multiple CDs with different maturity dates. This provides regular access to portions of your money while maintaining higher interest rates. For example, you might invest in 1-year, 2-year, 3-year, 4-year, and 5-year CDs. As each CD matures, you can reinvest it in a new 5-year CD, creating a continuous ladder.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How often should CD interest compound for maximum returns?</h3>
+                        <p>Daily compounding (365 times per year) yields the highest returns, followed by monthly (12), quarterly (4), semi-annually (2), and annually (1). The difference might seem small, but over time and with larger deposits, daily compounding can earn significantly more. For example, $10,000 at 4.5% APR for one year earns $450 with annual compounding but $459.59 with daily compounding.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Are CDs a good investment in 2026?</h3>
+                        <p>CDs can be excellent investments when interest rates are high, as they are in 2026. With rates ranging from 4-5.5%, CDs offer guaranteed returns higher than inflation in many cases. They're ideal for emergency funds, short-term savings goals, or as part of a diversified portfolio. However, consider your liquidity needs and compare with other investment options based on your financial goals.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What is the minimum deposit for a CD?</h3>
+                        <p>Minimum deposits vary widely by institution and CD type. Traditional CDs often require $500-$1,000 minimum, though some online banks offer CDs with no minimum. Jumbo CDs typically require $100,000 or more. Credit unions often have lower minimums than traditional banks. Always shop around to find the best combination of rates and minimum requirements for your situation.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can I add money to a CD after opening it?</h3>
+                        <p>Most traditional CDs don't allow additional deposits after opening. However, "add-on CDs" specifically permit additional contributions during the term at the same interest rate. These are less common and typically offer slightly lower rates than traditional CDs. If you want ongoing deposit capability, consider opening multiple CDs at different times or using a high-yield savings account alongside your CD.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How are CD earnings taxed?</h3>
+                        <p>CD interest is taxed as ordinary income in the year it's earned, even if you don't withdraw it. Banks will send you a 1099-INT form if you earn $10 or more in interest. The interest is taxed at your marginal tax rate. IRA CDs offer tax advantages - traditional IRA CDs provide tax-deferred growth, while Roth IRA CDs offer tax-free growth if you meet the requirements.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What happens when my CD matures?</h3>
+                        <p>When a CD matures, you typically have a grace period (usually 7-10 days) to decide what to do with your funds. Options include: withdrawing the entire balance, renewing at current rates (auto-renewal), or opening a new CD with different terms. If you don't take action, most banks automatically renew your CD at the current rate for the same term. Always mark your calendar and review rates before maturity.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Are online bank CDs safe?</h3>
+                        <p>Yes, online bank CDs are just as safe as traditional bank CDs, provided the institution is FDIC-insured (or NCUA-insured for credit unions). Online banks often offer higher rates because they have lower overhead costs. Always verify FDIC insurance status using the FDIC's BankFind tool. The standard insurance limit is $250,000 per depositor, per insured bank, for each account ownership category.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2>Expert Tips for CD Investing</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">1</div>
+                        <h3>Shop Around for Best Rates</h3>
+                        <p>CD rates vary significantly between institutions. Online banks and credit unions often offer rates 0.5-1.5% higher than traditional banks. Use our calculator to compare offers and maximize your returns.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">2</div>
+                        <h3>Match Terms to Your Goals</h3>
+                        <p>Align CD maturity dates with when you'll need the funds. Planning a down payment in 3 years? A 36-month CD is ideal. Need flexibility? Consider shorter terms or a CD ladder.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">3</div>
+                        <h3>Consider the Interest Rate Environment</h3>
+                        <p>If rates are rising, shorter-term CDs or bump-up CDs allow you to take advantage of increases. If rates are falling, lock in longer terms to secure current rates.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">4</div>
+                        <h3>Build a CD Ladder</h3>
+                        <p>Divide your investment across multiple CDs with staggered maturity dates. This strategy provides regular liquidity while maintaining higher average rates than short-term CDs.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">5</div>
+                        <h3>Verify FDIC Insurance</h3>
+                        <p>Ensure your bank is FDIC-insured and stay under the $250,000 limit per depositor, per bank. For larger amounts, spread across multiple institutions.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">6</div>
+                        <h3>Automate Your Ladder</h3>
+                        <p>Set calendar reminders for CD maturity dates. When each CD matures, reinvest in a new long-term CD to maintain your ladder structure and capture current rates.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">7</div>
+                        <h3>Compare APY, Not Just APR</h3>
+                        <p>Always compare CDs using APY (Annual Percentage Yield), which accounts for compounding. Daily compounding can add 0.09% or more to your effective return.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">8</div>
+                        <h3>Read the Fine Print</h3>
+                        <p>Understand early withdrawal penalties, grace periods, and automatic renewal terms before opening a CD. Some promotional rates have specific requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="keywords-section">
+            <div class="container">
+                <h2>CD Calculator Resources & Related Topics</h2>
+                <div class="keywords-grid">
+                    <div class="keyword-group">
+                        <h3>Calculator Types</h3>
+                        <ul>
+                            <li>CD Interest Calculator</li>
+                            <li>CD Rate Calculator</li>
+                            <li>CD Maturity Calculator</li>
+                            <li>CD Earnings Calculator</li>
+                            <li>CD Ladder Calculator</li>
+                            <li>APY Calculator</li>
+                            <li>Compound Interest Calculator</li>
+                            <li>Early Withdrawal Calculator</li>
+                        </ul>
+                    </div>
+                    <div class="keyword-group">
+                        <h3>CD Terms</h3>
+                        <ul>
+                            <li>3 Month CD Rates</li>
+                            <li>6 Month CD Rates</li>
+                            <li>1 Year CD Rates</li>
+                            <li>18 Month CD Rates</li>
+                            <li>2 Year CD Rates</li>
+                            <li>3 Year CD Rates</li>
+                            <li>5 Year CD Rates</li>
+                            <li>Long-term CD Rates</li>
+                        </ul>
+                    </div>
+                    <div class="keyword-group">
+                        <h3>CD Features</h3>
+                        <ul>
+                            <li>High Yield CD</li>
+                            <li>No Penalty CD</li>
+                            <li>Jumbo CD</li>
+                            <li>IRA CD</li>
+                            <li>Bump-Up CD</li>
+                            <li>Add-On CD</li>
+                            <li>Brokered CD</li>
+                            <li>Callable CD</li>
+                        </ul>
+                    </div>
+                    <div class="keyword-group">
+                        <h3>Comparisons</h3>
+                        <ul>
+                            <li>CD vs Savings Account</li>
+                            <li>CD vs Money Market</li>
+                            <li>CD vs Treasury Bills</li>
+                            <li>CD vs Bonds</li>
+                            <li>Best CD Rates</li>
+                            <li>Online Bank CDs</li>
+                            <li>Credit Union CD Rates</li>
+                            <li>Bank CD Comparison</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About CD Interest Calculator</h4>
+                    <p>Free, comprehensive calculator for Certificate of Deposit returns. Calculate APY, compare rates, and plan your savings strategy with our easy-to-use tools.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#calculator">CD Calculator</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#comparison">Compare CDs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#calculator">Calculate CD Returns</a></li>
+                        <li><a href="#how-it-works">Understanding APY</a></li>
+                        <li><a href="#how-it-works">CD Laddering Guide</a></li>
+                        <li><a href="#faq">CD Investment Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This calculator provides estimates based on the information you provide. Actual returns may vary. Always verify rates and terms with your financial institution. This tool is for educational purposes only and does not constitute financial advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CD Interest Calculator. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
+
