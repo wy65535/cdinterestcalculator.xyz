@@ -1,0 +1,33 @@
+{
+  "name": "cd-interest-calculator",
+  "version": "1.0.0",
+  "description": "Free online Certificate of Deposit (CD) interest calculator with compound interest calculations and APY comparisons",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "cd calculator",
+    "certificate of deposit",
+    "interest calculator",
+    "cd rate calculator",
+    "apy calculator",
+    "compound interest",
+    "savings calculator",
+    "investment calculator",
+    "finance calculator",
+    "cd maturity calculator"
+  ],
+  "author": "CD Interest Calculator",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/cdinterestcalculator.xyz.git"
+  },
+  "homepage": "https://cdinterestcalculator.xyz",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/cdinterestcalculator.xyz/issues"
+  }
+}
+
