@@ -1,0 +1,17 @@
+# ads.txt for CD Interest Calculator
+# This file is used to declare authorized digital sellers for your ad inventory
+# Replace with your actual Google AdSense publisher ID when you get approved
+
+# Google AdSense
+# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Instructions:
+# 1. Sign up for Google AdSense at https://www.google.com/adsense
+# 2. Get your publisher ID (starts with pub-)
+# 3. Replace pub-0000000000000000 with your actual publisher ID
+# 4. Uncomment the line above by removing the # at the beginning
+# 5. Upload this file to the root directory of your website
+
+# This file helps prevent ad fraud and ensures your ad inventory is legitimate
+
